@@ -18,14 +18,16 @@ SET time_for_user_to_finish_job=300
 ::Код разрешения, устанавливаемый в консоли кластера 1с
 SET lock_code=123455
 
-
+::Путь к хранилищу конфигурации
 SET "repo_dev_dest="
+::Пользователь хранилища
 SET repo_dev_user=""
+::Пароль пользователя хранилища
 SET repo_dev_pwd=""
 
+::Строка подключения к базе
 SET "ConnectionString=/IBConnectionString""Srvr=%server%;Ref=%db_name%;"""
 
-::Установить блокировку базы
 echo 1. Устанавливается блокировка базы. 5 минут пользователям для завершения работы
 ::deployka session lock -rac "C:\Program Files (x86)\1cv8\8.3.10.2615\bin\rac.exe" -ras %server%:1545 -db %db_name% -db-user %db_user% -db-pwd %db_pwd% -lockmessage "%lockmessage%" -lockstartat %time_for_user_to_finish_job% -lockuccode %lock_code%
 call deployka session lock -rac "C:\Program Files (x86)\1cv8\8.3.10.2615\bin\rac.exe" -ras %server%:1545 -db %db_name% -db-user %db_user% -db-pwd %db_pwd% -lockmessage "%lockmessage%" -lockuccode %lock_code% -lockstartat 600
