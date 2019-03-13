@@ -1,0 +1,1 @@
+call oscript C:\1C\Git\1C_Ci\Scripts\SFConterpartiesFIX.os
